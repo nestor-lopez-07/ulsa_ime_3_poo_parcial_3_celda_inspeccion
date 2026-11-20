@@ -11,7 +11,7 @@ Proyecto del Parcial 3 de Programación Orientada a Objetos.
 | 3 | Pendiente | Daniel | Pendiente | CamaraVision |
 | 4 | 25128 | Diego | Pendiente | SensorTemperatura |
 | 5 | Pendiente | Arturo | Pendiente | ReporteTurno |
-| 6 | Pendiente | Jorge | Pendiente | Durometro |
+| 6 | Pendiente | Jorge | Jorge-Sadurni | Durometro |
 
 ## 2. Cómo compilar y ejecutar
 
@@ -113,7 +113,7 @@ La ejecución aún no pudo verificarse porque el repositorio conserva las clases
 
 El diagrama completo debe guardarse en la raíz como `diseno_solucion.png`. Debe incluir `Dispositivo` como clase abstracta, `Calibrable` como interfaz, herencia múltiple en `Bascula` y `CalibradorLaser`, composición entre `CeldaInspeccion` y `ReporteTurno`, agregación hacia `Dispositivo`, dependencia hacia `Pieza`, virtuales puros, destructor virtual, `override` y `SensorTemperatura` como `final`.
 
-![Diagrama de clases](diseno_solucion.png)
+![Diagrama de clases](diseño_solucion.png)
 
 ## 6. Documentación individual
 
