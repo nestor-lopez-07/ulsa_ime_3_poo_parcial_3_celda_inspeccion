@@ -34,42 +34,24 @@ g++ -Wall -Wextra -std=c++17 experimentos/destructores.cpp -o destructores.exe
 
 ## 3. Contrato de `Dispositivo` y `Calibrable`
 
-**Errores esperados al compilar el repositorio base:**
+**¿Qué errores dio el compilador al compilar el repositorio base y qué significaba cada uno?**
 
-El repositorio incompleto no puede proporcionar una implementación válida de `Dispositivo` o `Calibrable`. Los errores principales esperan que el equipo declare el contrato común y que las clases derivadas hereden e implementen esos métodos. También puede haber errores por métodos abstractos que no se implementaron o por falta de definiciones para `dynamic_cast`, según el estado de las clases.
+- `class Dispositivo` no tenía el miembro `descripcion`: `iniciarTurno()` llama a `d->descripcion()` y ese método no existía.
+- `class Calibrable` no tenía el miembro `calibrar`: `iniciarTurno()` llama a `c->calibrar()` y ese método no existía.
+- El tipo fuente no era polimórfico: `dynamic_cast<Calibrable*>(d)` exige que `Dispositivo` tenga al menos un método virtual.
+- Las clases `CeldaInspeccion.h` y `ReporteTurno` estaban incompletas, pero la celda las utiliza.
 
-**Contrato acordado para `Dispositivo`:**
+**¿Qué métodos agregaron a Dispositivo? ¿Cuáles son virtuales puros, cuáles son const y por qué el destructor es virtual?**
 
-```cpp
-class Dispositivo {
-public:
-    explicit Dispositivo(const std::string& id);
+- `inspeccionar(const Pieza&) const`: es virtual puro y `const`. Un dispositivo no modifica la pieza ni su propio estado al medir. Recibe `const&` para no copiar.
+- `descripcion() const`: es virtual puro y `const`, ya que solo consulta información.
+- Al tener métodos virtuales puros, la clase `Dispositivo` es abstracta y no se puede crear un objeto genérico.
+- El destructor es virtual para que `delete` mediante un `Dispositivo*` llame al destructor de la clase derivada. Además, hace que la clase sea polimórfica y permite usar `dynamic_cast`.
 
-    const std::string& id() const;
-    virtual bool inspeccionar(const Pieza& pieza) = 0;
-    virtual const std::string& descripcion() const = 0;
-    virtual ~Dispositivo() = default;
-};
-```
+**¿Qué agregaron a Calibrable y por qué no tiene atributos?**
 
-- `inspeccionar(const Pieza&)` es `virtual` puro porque cada dispositivo aplica una regla distinta sobre la misma pieza. Devuelve `bool`: `true` significa que acepta y `false` que rechaza.
-- `descripcion() const` es `virtual` puro porque la descripción textual pertenece a cada tipo concreto. Es `const` porque solo consulta el nombre y no modifica el objeto.
-- `id() const` se conserva como consulta constante. Se recibe por referencia constante para evitar copiar cadenas innecesariamente.
-- La parámetro de `inspeccionar()` se recibe como `const Pieza&` porque el dispositivo solo lee los datos de la pieza y no debe modificarlos.
-- El destructor es `virtual` para que `delete` o la destrucción de un dispositivo concreto usando un `Dispositivo*` invoque primero al destructor derivado y después al destructor base.
-- No se puede crear directamente un `Dispositivo` genérico porque contiene métodos virtuales puros; cada clase concreta debe implementarlos.
-
-**Contrato acordado para `Calibrable`:**
-
-```cpp
-class Calibrable {
-public:
-    virtual bool calibrar() = 0;
-    virtual ~Calibrable() = default;
-};
-```
-
-`calibrar()` es virtual porque la acción concreta puede ser distinta según el dispositivo. Devuelve `bool` para permitir que `iniciarTurno()` imprima `OK` o `FALLA`. `Calibrable` es una interfaz de capacidad y no tiene atributos: solo declara una operación que comparten ciertos dispositivos. Incluye destructor virtual para que pueda usarse de forma polimórfica por puntero. `Bascula` y `CalibradorLaser` heredarán de `Dispositivo` y de `Calibrable`.
+- Agregamos `virtual bool calibrar() = 0` y un destructor virtual.
+- Es una capacidad (interfaz), no un objeto con estado. El desfase pertenece a cada dispositivo concreto, así que cada uno lo guarda y lo corrige a su manera.
 
 ## 4. Cálculo a mano del reporte
 
