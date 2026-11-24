@@ -8,7 +8,7 @@ Proyecto del Parcial 3 de Programación Orientada a Objetos.
 | --- | --- | --- | --- | --- |
 | 1 | 25218 | Néstor Hiram López Valdovinos | nestor-lopez-07 | Bascula |
 | 2 | Pendiente | Brayan Alberto | Pendiente | CalibradorLaser |
-| 3 | Pendiente | Daniel | Pendiente | CamaraVision |
+| 3 | 25029 | Daniel | danielhernandez-commitsD | CamaraVision |
 | 4 | 25128 | Diego | Pendiente | SensorTemperatura |
 | 5 | Pendiente | Arturo | Pendiente | ReporteTurno |
 | 6 | Pendiente | Jorge | Jorge-Sadurni | Durometro |
