@@ -10,8 +10,8 @@ Proyecto del Parcial 3 de Programación Orientada a Objetos.
 | 2 | 25160 | Brayan Alberto | brayanlopez-ux | CalibradorLaser |
 | 3 | 25029 | Daniel | danielhernandez-commitsD | CamaraVision |
 | 4 | 25128 | Diego | Pendiente | SensorTemperatura |
-| 5 | Pendiente | Arturo | Pendiente | ReporteTurno |
-| 6 | Pendiente | Jorge | Jorge-Sadurni | Durometro |
+| 5 | 25162 | Arturo | Pendiente |Durometro |
+| 6 | 25085 | Jorge | Jorge-Sadurni |ReporteTurno  |
 
 ## 2. Cómo compilar y ejecutar
 
@@ -102,11 +102,11 @@ El diagrama completo debe guardarse en la raíz como `diseno_solucion.png`. Debe
 | Integrante | Documentación de su clase | Rama del reto opcional |
 | --- | --- | --- |
 | Néstor Hiram López Valdovinos | `docs/25218/Bascula.md` | No |
-| Brayan Alberto | `docs/25160/CalibradorLaser.md` | no |
-| Daniel | `docs/<matrícula>/CamaraVision.md` | Pendiente |
-| Diego | `docs/<matrícula>/SensorTemperatura.md` | Pendiente |
-| Arturo | `docs/<matrícula>/ReporteTurno.md` | Pendiente |
-| Jorge | `docs/<matrícula>/Durometro.md` | Pendiente |
+| Brayan Alberto | `docs/25160/CalibradorLaser.md` | No |
+| Daniel | `docs/25029/CamaraVision.md` | No |
+| Diego | `docs/<matrícula>/SensorTemperatura.md` | No |
+| Arturo | `docs/<matrícula>/ReporteTurno.md` | No |
+| Jorge | `docs/<matrícula>/Durometro.md` | No |
 
 Los resultados de los experimentos deben estar documentados en [docs/experimentos.md](docs/experimentos.md).
 
