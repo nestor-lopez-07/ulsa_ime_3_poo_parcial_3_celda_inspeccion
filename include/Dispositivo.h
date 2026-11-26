@@ -28,7 +28,7 @@ namespace calidad
         //  ¿Cuáles deben ser const y por qué?
         //  ¿Qué pasa con el destructor?
         virtual ~Dispositivo() = default;
-        virtual bool inspeccionar(const Pieza & pieza ) = 0;
+        virtual bool inspeccionar(const Pieza & pieza ) const = 0;
         virtual const std::string descripcion() const = 0;
     };
 

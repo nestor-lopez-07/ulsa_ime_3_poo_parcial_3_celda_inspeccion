@@ -13,7 +13,6 @@
 
 
 int main() {
-    int main() {
     calidad::Bascula bascula("B-01");
     calidad::CalibradorLaser laser("L-01");
     calidad::CamaraVision camara("V-01");
@@ -40,8 +39,4 @@ int main() {
     std::cout << (celda.reporte() == esperado ? "Reporte correcto"
                                               : "Reporte con diferencias") << '\n';
     return 0;
-}
-
-    
-    
 }

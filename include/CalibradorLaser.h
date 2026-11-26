@@ -16,7 +16,7 @@ namespace calidad
     public:
         explicit CalibradorLaser(const std::string &id);
 
-        bool inspeccionar(const Pieza &pieza) override;
+        bool inspeccionar(const Pieza &pieza) const override;
         const std::string descripcion() const override;
         bool calibrar() override;
     };
