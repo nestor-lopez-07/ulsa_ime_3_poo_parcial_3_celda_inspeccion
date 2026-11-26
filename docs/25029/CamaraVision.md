@@ -1,4 +1,4 @@
-# Documentación de la clase: [Inserta aquí el nombre de tu clase]
+# Documentación de la clase: [CamaraVision]
 
 > Copia este archivo como `docs/<matrícula>/<Clase>.md` (por ejemplo, `docs/0123456/Bascula.md`) y llena tu copia. No modifiques la plantilla.
 
