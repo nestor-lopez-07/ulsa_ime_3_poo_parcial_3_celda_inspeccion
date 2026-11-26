@@ -10,6 +10,7 @@
 #include "ReporteTurno.h"
 #include "SensorTemperatura.h"
 #include "Durometro.h"
+#include "perfilometro.h"
 
 
 int main() {
@@ -18,6 +19,7 @@ int main() {
     calidad::CamaraVision camara("V-01");
     calidad::SensorTemperatura sensor("T-01");
     calidad::Durometro durometro("D-01");
+    calidad::perfilometro perfilometro("P-01");
 
     calidad::CeldaInspeccion celda;
     celda.agregarDispositivo(&bascula);
@@ -25,6 +27,7 @@ int main() {
     celda.agregarDispositivo(&camara);
     celda.agregarDispositivo(&sensor);
     celda.agregarDispositivo(&durometro);
+    celda.agregarDispositivo(&perfilometro);
 
     celda.iniciarTurno();
 
