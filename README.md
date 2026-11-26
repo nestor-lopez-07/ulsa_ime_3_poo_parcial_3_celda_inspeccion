@@ -103,7 +103,7 @@ El diagrama completo debe guardarse en la raíz como `diseno_solucion.png`. Debe
 | --- | --- | --- |
 | Néstor Hiram López Valdovinos | `docs/25218/Bascula.md` | No |
 | Brayan Alberto | `docs/25160/CalibradorLaser.md` | no |
-| Daniel | `docs/<matrícula>/CamaraVision.md` | Pendiente |
+| Daniel | `docs/25029/CamaraVision.md` | no |
 | Diego | `docs/<matrícula>/SensorTemperatura.md` | Pendiente |
 | Arturo | `docs/<matrícula>/ReporteTurno.md` | Pendiente |
 | Jorge | `docs/<matrícula>/Durometro.md` | Pendiente |
