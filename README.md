@@ -7,7 +7,7 @@ Proyecto del Parcial 3 de Programación Orientada a Objetos.
 | Integrante | Matrícula | Nombre | Usuario de GitHub | Clase |
 | --- | --- | --- | --- | --- |
 | 1 | 25218 | Néstor Hiram López Valdovinos | nestor-lopez-07 | Bascula |
-| 2 | Pendiente | Brayan Alberto | Pendiente | CalibradorLaser |
+| 2 | 25160 | Brayan Alberto | brayanlopez-ux | CalibradorLaser |
 | 3 | 25029 | Daniel | danielhernandez-commitsD | CamaraVision |
 | 4 | 25128 | Diego | Pendiente | SensorTemperatura |
 | 5 | Pendiente | Arturo | Pendiente | ReporteTurno |
@@ -102,7 +102,7 @@ El diagrama completo debe guardarse en la raíz como `diseno_solucion.png`. Debe
 | Integrante | Documentación de su clase | Rama del reto opcional |
 | --- | --- | --- |
 | Néstor Hiram López Valdovinos | `docs/25218/Bascula.md` | No |
-| Brayan Alberto | `docs/<matrícula>/CalibradorLaser.md` | Pendiente |
+| Brayan Alberto | `docs/25160/CalibradorLaser.md` | no |
 | Daniel | `docs/<matrícula>/CamaraVision.md` | Pendiente |
 | Diego | `docs/<matrícula>/SensorTemperatura.md` | Pendiente |
 | Arturo | `docs/<matrícula>/ReporteTurno.md` | Pendiente |
@@ -125,8 +125,8 @@ La prueba consistirá en crear una clase nueva que herede de `Dispositivo`, impl
 
 **¿Qué aprendimos en este proyecto?**
 
-Aprenderemos a separar un contrato común de sus implementaciones concretas. El uso de herencia, métodos virtuales puros, `override`, herencia múltiple e interfaces permite que la celda inspeccione piezas sin conocer las clases concretas. También reforzaremos las relaciones de agregación y composición, el uso de referencias constantes y la importancia de verificar límites y desfases de calibración.
+polimorfismo con métodos virtuales puros; herencia múltiple con dynamic_cast como cross-cast; por qué el destructor debe ser virtual; qué es el object slicing; diferencia entre composición y agregación.
 
 **¿Qué cambiaríamos de nuestro proceso de trabajo como equipo?**
 
-Haríamos primero los contratos de `Dispositivo` y `Calibrable`, revisaríamos el diagrama antes de implementar y confirmaríamos el cálculo a mano antes de probar. Después, cada integrante trabajaría en su clase desde una rama o en archivos propios, haciendo `git pull` antes de comenzar y commits pequeños. Las modificaciones compartidas a `CeldaInspeccion` y `main` se harían avisando al equipo y verificando la compilación después de cada integración.
+definir el contrato de Dispositivo y Calibrable el primer día, antes de repartir clases, y hacer commits más pequeños y frecuentes con git pull antes de empezar.
