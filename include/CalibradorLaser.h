@@ -1,8 +1,24 @@
 #pragma once
 
-namespace calidad {
+#include <string>
 
-class CalibradorLaser {
-};
+#include "Calibrable.h"
+#include "Dispositivo.h"
 
-}  // namespace calidad
+namespace calidad
+{
+
+    class CalibradorLaser : public Dispositivo, public Calibrable
+    {
+    private:
+        double desfase_;
+
+    public:
+        explicit CalibradorLaser(const std::string &id);
+
+        bool inspeccionar(const Pieza &pieza) const override;
+        const std::string descripcion() const override;
+        bool calibrar() override;
+    };
+
+} // namespace calidad
