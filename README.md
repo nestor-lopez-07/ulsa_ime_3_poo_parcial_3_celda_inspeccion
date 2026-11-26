@@ -89,7 +89,7 @@ El resultado coincide con las reglas del proyecto: P-01, P-02, P-04 y P-12 son a
 
 **Contraste con el programa:**
 
-La ejecución aún no pudo verificarse porque el repositorio conserva las clases y la celda incompletas. Cuando el programa esté implementado, se debe registrar aquí si coincidió al primer intento. Si aparece una diferencia, se documentará la pieza afectada, la causa y la corrección aplicada.
+La ejecución produjo 12 piezas inspeccionadas, 4 aceptadas y 8 rechazadas, con 2 rechazos por cada dispositivo. El programa terminó con `Reporte correcto`.
 
 ## 5. Diagrama de clases
 

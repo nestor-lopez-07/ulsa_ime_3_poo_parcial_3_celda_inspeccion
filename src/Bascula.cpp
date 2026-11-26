@@ -9,7 +9,7 @@ namespace calidad
         double medido = pieza.peso() + desfase_;
         return medido >= 10.0 && medido <= 15.0;
     }
-    const std::string Bascula::descripcion() const { return "Bascula"; }
+    std::string Bascula::descripcion() const { return "Bascula"; }
 
     bool Bascula::calibrar()
     {

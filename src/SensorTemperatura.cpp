@@ -10,6 +10,6 @@ namespace calidad
         return pieza.temperatura() >= 20.0 && pieza.temperatura() <= 35.0;
     }
 
-    const std::string SensorTemperatura::descripcion() const { return "Sensor temperatura"; }
+    std::string SensorTemperatura::descripcion() const { return "Sensor temperatura"; }
 
 }
