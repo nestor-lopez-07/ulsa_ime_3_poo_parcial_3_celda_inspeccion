@@ -40,3 +40,53 @@ Se perdió la parte derivada. Al pasar Derivada2 por valor a una función que re
 *4. ¿Por qué esto no puede pasar con Dispositivo en su proyecto? ¿Cómo se evita en general?*
 
 Dispositivo es abstracta (tiene inspeccionar y descripcion virtuales puros), así que no se pueden crear objetos Dispositivo ni pasarlos por valor: el compilador lo rechaza. Además, CeldaInspeccion guarda std::vector<Dispositivo*>, es decir punteros, y recibe Pieza por const&. Por eso Bascula, CalibradorLaser, CamaraVision, SensorTemperatura y Durometro siempre se usan por su tipo real y se ejecuta la versión correcta de cada método. En general se evita pasando objetos polimórficos por referencia (const&) o por puntero (o puntero inteligente), y haciendo abstracta la clase base.
+
+## Experimento 2: Destructor virtual
+
+### Compilar y ejecutar
+
+```bash
+# Sin virtual
+g++ -Wall -Wextra -std=c++17 experimentos/destructores.cpp -o destructores
+./destructores
+
+# Con virtual
+g++ -Wall -Wextra -std=c++17 -DCON_VIRTUAL experimentos/destructores.cpp -o destructores_virtual
+./destructores_virtual
+```
+
+### Salida sin `virtual` en el destructor de `Base`
+
+```text
+warning: deleting object of polymorphic class type 'Base' which has non-virtual destructor might cause undefined behavior [-Wdelete-non-virtual-dtor]
+Constructor Base
+Constructor Derivada (reserva memoria)
+Hola desde Derivada
+Destructor Base
+```
+
+### Salida con `virtual` en el destructor de `Base`
+
+```text
+Constructor Base
+Constructor Derivada (reserva memoria)
+Hola desde Derivada
+Destructor Derivada (libera memoria)
+Destructor Base
+```
+
+### Explicación del warning
+
+El compilador avisa que se está haciendo `delete` sobre un objeto de una clase polimórfica (tiene un método virtual) a través de un puntero `Base*` cuyo destructor no es virtual. Eso es comportamiento indefinido: como el destructor no es virtual, `delete p` solo sabe llamar al destructor de `Base` (tipo del puntero) y no al de `Derivada` (tipo real del objeto). El warning describe exactamente el error que provoca el experimento.
+
+### ¿Qué diferencia hay entre las dos salidas?
+
+Sin virtual solo se ejecuta `~Base()`; nunca se llama a `~Derivada()`. Con virtual se ejecutan los dos, primero `~Derivada()` y luego `~Base()` (de lo más derivado a lo más base).
+
+### ¿Qué consecuencia tiene?
+
+Si `Derivada` tiene recursos propios (aquí, un arreglo `new int[100]`; en general, memoria, archivos o conexiones), al no ejecutarse su destructor nunca se liberan y hay fuga de memoria o recursos abiertos.
+
+### ¿Por qué no se notó en el proyecto?
+
+En `main`, los dispositivos son objetos locales (`Bascula bascula("B-01");`, etc., incluido `Durometro`) y no se destruyen mediante un `Dispositivo*` con `delete`. Si la celda los creara con `new` y los borrara a través de un `Dispositivo*`, el error aparecería. Por eso `Dispositivo` y `Calibrable` declaran un destructor virtual, y las cinco clases de dispositivos (`Bascula`, `CalibradorLaser`, `CamaraVision`, `SensorTemperatura` y `Durometro`) quedan protegidas al heredar de `Dispositivo`.
