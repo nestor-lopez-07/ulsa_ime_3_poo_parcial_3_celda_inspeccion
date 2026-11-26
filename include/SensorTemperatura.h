@@ -4,14 +4,16 @@
 
 #include "Dispositivo.h"
 
-namespace calidad {
+namespace calidad
+{
 
-class SensorTemperatura final : public Dispositivo {
-public:
-    explicit SensorTemperatura(const std::string& id);
+    class SensorTemperatura final : public Dispositivo
+    {
+    public:
+        explicit SensorTemperatura(const std::string &id);
 
-    bool inspeccionar(const Pieza& pieza) const override;
-    std::string descripcion() const override;
-};
+        bool inspeccionar(const Pieza &pieza) override;
+        const std::string descripcion() const override;
+    };
 
 }

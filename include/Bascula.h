@@ -5,19 +5,21 @@
 #include "Calibrable.h"
 #include "Dispositivo.h"
 
-namespace calidad {
+namespace calidad
+{
 
-class Bascula : public Dispositivo, public Calibrable {
+    class Bascula : public Dispositivo, public Calibrable
+    {
 
     private:
-    double desfase_;
+        double desfase_;
 
     public:
-    explicit Bascula(const std::string& id);
+        explicit Bascula(const std::string &id);
 
-    bool inspeccionar(const Pieza& pieza) const override;
-    std::string descripcion() const override;
-    bool calibrar() override;
-};
+        bool inspeccionar(const Pieza &pieza) override;
+        const std::string descripcion() const override;
+        bool calibrar() override;
+    };
 
-}  // namespace calidad
+} // namespace calidad

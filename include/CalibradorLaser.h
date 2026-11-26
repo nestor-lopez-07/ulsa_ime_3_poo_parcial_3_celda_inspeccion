@@ -3,21 +3,22 @@
 #include <string>
 
 #include "Calibrable.h"
-#include "Dsipositivo.h"
+#include "Dispositivo.h"
 
-namespace calidad {
+namespace calidad
+{
 
-class CalibradorLaser : public Dispositivo, public Calibrable{
+    class CalibradorLaser : public Dispositivo, public Calibrable
+    {
     private:
-    double desfase_;
+        double desfase_;
 
     public:
-    explicit CalibradorLaser(const std::string& id);
+        explicit CalibradorLaser(const std::string &id);
 
-    bool inspeccionar(const Pieza& pieza) const override;
-    std::string description() const override;
-    bool calibrar() override;
-};
+        bool inspeccionar(const Pieza &pieza) override;
+        const std::string descripcion() const override;
+        bool calibrar() override;
+    };
 
-
-}  // namespace calidad
+} // namespace calidad
