@@ -10,6 +10,6 @@ namespace calidad
         return pieza.dureza() >= 45.0 && pieza.dureza() <= 60.0;
     }
 
-    const std::string Durometro::descripcion() const { return "Durometro"; }
+    std::string Durometro::descripcion() const { return "Durometro"; }
 
 } // namespace calidad
