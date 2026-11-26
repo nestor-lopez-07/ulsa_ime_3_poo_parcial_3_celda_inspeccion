@@ -18,7 +18,7 @@ namespace calidad
         explicit Bascula(const std::string &id);
 
         bool inspeccionar(const Pieza &pieza) const override;
-        const std::string descripcion() const override;
+        std::string descripcion() const override;
         bool calibrar() override;
     };
 

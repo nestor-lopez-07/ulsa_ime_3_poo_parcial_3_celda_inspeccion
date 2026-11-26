@@ -12,7 +12,7 @@ namespace calidad
         return medido >= 49.5 && medido <= 50.5;
     }
 
-    const std::string CalibradorLaser::descripcion() const { return "Calibrador laser"; }
+    std::string CalibradorLaser::descripcion() const { return "Calibrador laser"; }
 
     bool CalibradorLaser::calibrar()
     {

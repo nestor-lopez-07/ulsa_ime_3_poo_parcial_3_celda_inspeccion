@@ -10,6 +10,6 @@ namespace calidad
         return pieza.defectos() == 0;
     }
 
-    const std::string CamaraVision::descripcion() const { return "Camara de vision"; }
+    std::string CamaraVision::descripcion() const { return "Camara de vision"; }
 
 } // namespace calidad
