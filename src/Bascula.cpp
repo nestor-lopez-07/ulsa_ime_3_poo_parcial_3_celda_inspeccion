@@ -1,17 +1,20 @@
 #include "Bascula.h"
-namespace calidad {
+namespace calidad
+{
 
-    Bascula::Bascula(const std::string& id) : Dispositivo(id), desfase_(0.4) {}
+    Bascula::Bascula(const std::string &id) : Dispositivo(id), desfase_(0.4) {}
 
-bool Bascula::inspeccionar(const Pieza& pieza) const {
-    double medido = pieza.peso() + desfase_;
-    return medido >= 10.0 && medido <= 15.0;
+    bool Bascula::inspeccionar(const Pieza &pieza) const
+    {
+        double medido = pieza.peso() + desfase_;
+        return medido >= 10.0 && medido <= 15.0;
+    }
+    const std::string Bascula::descripcion() const { return "Bascula"; }
+
+    bool Bascula::calibrar()
+    {
+        desfase_ = 0.0;
+        return true;
+    }
+
 }
-std::string Bascula::descripcion() const { return "Bascula"; }
-
-bool Bascula::calibrar() {
-    desfase_ = 0.0;
-    return true;
-}
-
-} 
